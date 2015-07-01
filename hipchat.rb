@@ -6,6 +6,12 @@ require 'json'
 
 client = HipChat::Client.new(HIPCHAT_API_TOKEN, :api_version => 'v2')
 
+set :environment, :production
+
+configure do
+  Sinatra::Logentries.token = '9fee7149-af22-4119-94e7-300c824e0925'
+end
+
 get '/test-post' do
 	# 'username' is the name for which the message will be presented as from
 	#client['miketest'].send('@neptune', 'I talk')
