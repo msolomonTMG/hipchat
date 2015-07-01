@@ -4,7 +4,7 @@ require 'rest-client'
 require 'json'
 #require './config.rb'
 
-client = HipChat::Client.new(HIPCHAT_API_TOKEN, :api_version => 'v2')
+client = HipChat::Client.new(ENV['HIPCHAT_API_TOKEN'], :api_version => 'v2')
 
 set :environment, :production
 
@@ -50,7 +50,7 @@ post '/set_subscription' do
 	puts "url"
 	puts url
 
-	response = JSON.parse(RestClient.get(url, {:params => {:access_token => INSTAGRAM_ACESS_TOKEN_NEPTUNE}, :accept => :json} ) )
+	response = JSON.parse(RestClient.get(url, {:params => {:access_token => ENV['INSTAGRAM_ACESS_TOKEN_NEPTUNE']}, :accept => :json} ) )
 	img_url = response["data"]["images"]["standard_resolution"]["url"]
 	caption = response["data"]["caption"]["text"]
 	link = response["data"]["link"]
@@ -61,8 +61,8 @@ post '/set_subscription' do
 end
 
 get '/authorize' do
-	puts INSTAGRAM_AUTH_URL
-	redirect INSTAGRAM_AUTH_URL
+	puts ENV['INSTAGRAM_AUTH_URL']
+	redirect ENV['INSTAGRAM_AUTH_URL']
 end
 
 get '/auth-redirect' do
@@ -71,10 +71,10 @@ get '/auth-redirect' do
 		puts params.inspect
 		code = params["code"]
 
-		system "curl -F '#{INSTAGRAM_CLIENT_ID}' \
-			-F 'client_secret=#{INSTAGRAM_CLIENT_SECRET}' \
+		system "curl -F '#{ENV["INSTAGRAM_CLIENT_ID"]}' \
+			-F 'client_secret=#{ENV["INSTAGRAM_CLIENT_SECRET"]}' \
 			-F 'grant_type=authorization_code' \
-			-F 'redirect_uri=#{INSTAGRAM_OAUTH_REDIRECT_URI}' \
+			-F 'redirect_uri=#{ENV["INSTAGRAM_OAUTH_REDIRECT_URI"]}' \
 			-F 'code=#{code}' \
 			https://api.instagram.com/oauth/access_token"
 	else
@@ -104,7 +104,7 @@ end
 get '/easy-auth' do
 	access_token = request.fullpath.split('#access_token=')[1]
 	if access_token == nil
-		instagram_auth = "https://instagram.com/oauth/authorize/?client_id="+INSTAGRAM_CLIENT_ID+"&redirect_uri="+INSTAGRAM_EASY_AUTH_REDIRECT_URI+"&response_type=token"
+		instagram_auth = "https://instagram.com/oauth/authorize/?client_id="+ENV['INSTAGRAM_CLIENT_ID']+"&redirect_uri="+ENV['INSTAGRAM_EASY_AUTH_REDIRECT_URI']+"&response_type=token"
 		puts instagram_auth
 		redirect instagram_auth
 	else
