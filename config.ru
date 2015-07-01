@@ -1,2 +1,2 @@
-require './server.rb'
+require './hipchat.rb'
 run Sinatra::Application
