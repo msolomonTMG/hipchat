@@ -1,4 +1,7 @@
 # A sample Gemfile
 source "https://rubygems.org"
 
-# gem "rails"
+gem "sinatra"
+gem "hipchat"
+gem "rest-client"
+gem "json"
