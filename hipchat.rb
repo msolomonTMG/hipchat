@@ -51,7 +51,7 @@ post '/set_subscription' do
 	puts img_url
 
 	client['Commerce'].send("@neptune", "<table><th>#{caption}</th><tr><td><a href='#{link}' target='_blank'><img src='#{img_url}'/></a></td></tr></table>", :message_format => 'html', :notify => true, :color => 'random')
-
+	client['Pinnacle - Jackthreads'].send('@neptunethedoodle', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
 end
 
 get '/authorize' do
