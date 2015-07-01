@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'sinatra-logentries'
 require 'hipchat'
 require 'rest-client'
 require 'json'
