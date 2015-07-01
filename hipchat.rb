@@ -105,7 +105,7 @@ end
 get '/easy-auth' do
 	access_token = request.fullpath.split('#access_token=')[1]
 	if access_token == nil
-		instagram_auth = "https://instagram.com/oauth/authorize/?client_id="+ENV['INSTAGRAM_CLIENT_ID']+"&redirect_uri="+ENV['INSTAGRAM_EASY_AUTH_REDIRECT_URI']+"&response_type=token"
+		instagram_auth = "https://instagram.com/oauth/authorize/?client_id=#{ENV['INSTAGRAM_CLIENT_ID']}&redirect_uri=#{ENV['INSTAGRAM_EASY_AUTH_REDIRECT_URI']}&response_type=token"
 		puts instagram_auth
 		redirect instagram_auth
 	else
