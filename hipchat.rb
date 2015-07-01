@@ -2,7 +2,7 @@ require 'sinatra'
 require 'hipchat'
 require 'rest-client'
 require 'json'
-require './config.rb'
+#require './config.rb'
 
 client = HipChat::Client.new(HIPCHAT_API_TOKEN, :api_version => 'v2')
 
