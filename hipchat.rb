@@ -24,8 +24,8 @@ get '/test-post' do
 	#client['my room'].send('username', 'Build failed!', :color => 'red')
 
 	# Have your message rendered as text in HipChat (see https://www.hipchat.com/docs/apiv2/method/send_room_notification)
-	client['Commerce'].send('@neptunethedoodle', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
-	client['Pinnacle - Jackthreads'].send('@neptunethedoodle', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
+	client['Commerce'].send('@neptune', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
+	client['Pinnacle - Jackthreads'].send('@neptune', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
 end
 
 get '/' do
@@ -58,7 +58,7 @@ post '/set_subscription' do
 	puts img_url
 
 	client['Commerce'].send("@neptune", "<table><th>#{caption}</th><tr><td><a href='#{link}' target='_blank'><img src='#{img_url}'/></a></td></tr></table>", :message_format => 'html', :notify => true, :color => 'random')
-	client['Pinnacle - Jackthreads'].send('@neptunethedoodle', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
+	client['Pinnacle - Jackthreads'].send('@neptune', '<table><th>Image</th><tr><td><img src="http://static.guim.co.uk/sys-images/Guardian/Pix/pictures/2015/4/24/1429874666489/168b8f53-fa5c-4798-a571-6d614875509e-1020x612.png"/></td></tr></table>', :message_format => 'html', :notify => true, :color => 'random')
 end
 
 get '/authorize' do
