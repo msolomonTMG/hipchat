@@ -29,7 +29,7 @@ get '/test-post' do
 end
 
 get '/' do
-	hello
+	puts "hello"
 end
 
 get '/set_subscription' do
